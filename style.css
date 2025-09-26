@@ -240,7 +240,6 @@ html, body {
         left: calc(50% + 85px + 17px); /* Setengah grid HP + offset */
         top: calc(50% + 55px);
         transform: translate(-50%, -50%) scale(0.8);
-        border: 1px solid #FFB5DE;
     }
     
     .star-decoration img {
