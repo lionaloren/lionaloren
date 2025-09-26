@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liona Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Fix PDF.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+</head>
+<body>
+    <div class="landing-page">
+        <!-- Welcome Text -->
+        <div class="welcome">
+            <h1>Welcome</h1>
+            <p>my name is <strong>Liona</strong></p>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content-area">
+            <div class="button-grid">
+                <div class="button" id="about">
+                    <img src="assets/about-icon.svg" alt="About Me Icon">
+                    <span>about me</span>
+                </div>
+                <div class="button" id="contact">
+                    <img src="assets/contact-icon.svg" alt="Contact Icon">
+                    <span>contact</span>
+                </div>
+                <div class="button" id="cv">
+                    <img src="assets/cv-icon.svg" alt="CV Icon">
+                    <span>cv</span>
+                </div>
+                <div class="button" id="project">
+                    <img src="assets/project-icon.svg" alt="Project Icon">
+                    <span>project</span>
+                </div>
+                <div class="button" id="game">
+                    <img src="assets/game-icon.svg" alt="Game Icon">
+                    <span>game</span>
+                </div>
+            </div>
+
+            <!-- Star positioned beside Game button and under CV button -->
+            <div class="star-decoration">
+                <img src="assets/star.svg" alt="Star Icon">
+                <div class="eyes">
+                    <span class="eye left"></span>
+                    <span class="eye right"></span>
+                </div>
+                <div class="mouth"></div>
+            </div>
+        </div>
+
+        <!-- Bottom Block - Empty and stretched -->
+        <div class="bottom-block"></div>
+    </div>
+
+    <!-- Popup Overlay -->
+    <div class="popup-overlay" id="popupOverlay"></div>
+
+    <!-- About Me Popup -->
+    <div class="popup-window" id="aboutPopup" data-type="about">
+        <div class="popup-header">
+            <div class="popup-title">about me</div>
+            <button class="popup-close">
+                <img src="assets/close-icon.svg" alt="Close" class="close-icon">
+            </button>
+        </div>
+        <div class="popup-divider"></div>
+        <div class="popup-content about-content">
+            <!-- Add decorative elements here -->
+            <img src="assets/ribbon-icon.svg" alt="" class="decorative-ribbon">
+            <img src="assets/moon-icon.svg" alt="" class="decorative-moon">
+            
+            <div class="text-content">
+                <p>I'm an aspiring UI/UX Designer, AI/ML enthusiast, and a university student passionate about software development. I enjoy bringing ideas to life through engaging interfaces, seamless user experiences, and functional applications.</p>
+                <p>I've worked on team-based projects where I contributed to both UI and UX, from visual design, wireframes, and screen flows to UX research and usability improvements. I have also explored AI/ML research and implementation, along with software prototyping and development.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Popup -->
+    <div class="popup-window" id="contactPopup" data-type="contact">
+        <div class="popup-header">
+            <div class="popup-title">contact</div>
+            <button class="popup-close">
+                <img src="assets/close-icon.svg" alt="Close" class="close-icon">
+            </button>
+        </div>
+        <div class="popup-divider"></div>
+        <div class="popup-content contact-content">
+            <!-- Add decorative elements here -->
+            <img src="assets/strawberry-icon.svg" alt="" class="decorative-strawberry">
+            <img src="assets/spark-icon.svg" alt="" class="decorative-spark">
+            
+            <div class="contact-info">
+                <div class="contact-item contact-link-item" data-type="email" data-link="lolionaloren@gmail.com">
+                    <img src="assets/email-icon.svg" alt="Email" class="contact-icon">
+                    <span class="label">Email:</span>
+                    <span class="value">lolionaloren@gmail.com</span>
+                </div>
+                
+                <a class="contact-item contact-link-item" href="https://www.linkedin.com/in/lionaloren/" target="_blank">
+                    <img src="assets/linkedin-icon.svg" alt="LinkedIn" class="contact-icon">
+                    <span class="label">LinkedIn:</span>
+                    <span class="value">lionaloren</span>
+                </a>
+                
+                <a class="contact-item contact-link-item" href="https://github.com/lionaloren" target="_blank">
+                    <img src="assets/github-icon.svg" alt="GitHub" class="contact-icon">
+                    <span class="label">GitHub:</span>
+                    <span class="value">lionaloren</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CV Popup -->
+    <div class="popup-window" id="cvPopup" data-type="cv">
+        <div class="popup-header">
+            <div class="popup-title">cv</div>
+            <button class="popup-close">
+                <img src="assets/close-icon.svg" alt="Close" class="close-icon">
+            </button>
+        </div>
+        <div class="popup-divider"></div>
+        <div class="popup-content cv-content">
+            <div class="cv-pdf-container">
+                <!-- ATS CV -->
+                <div class="pdf-item" data-pdf="cv-ats.pdf" data-title="CV ATS">
+                    <div class="cv-icons">
+                        <img src="assets/cv/clover-icon.svg" alt="Clover" class="cv-icon">
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-title">ATS CV</div>
+                        <div class="pdf-size">PDF • 5542 KB</div>
+                    </div>
+                    <div class="pdf-action">
+                        <button class="zoom-pdf" title="View CV ATS">
+                            <img src="assets/zoom-icon.svg" alt="Zoom" class="zoom-icon">
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Creative CV -->
+                <div class="pdf-item" data-pdf="cv-creative.pdf" data-title="CV Creative">
+                    <div class="cv-icons">
+                        <img src="assets/cv/heart-icon.svg" alt="Heart" class="cv-icon">
+                    </div>
+                    <div class="pdf-info">
+                        <div class="pdf-title">Creative CV</div>
+                        <div class="pdf-size">PDF • 129 KB</div>
+                    </div>
+                    <div class="pdf-action">
+                        <button class="zoom-pdf" title="View CV Creative">
+                            <img src="assets/zoom-icon.svg" alt="Zoom" class="zoom-icon">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Popup -->
+    <div class="popup-window" id="projectPopup" data-type="project">
+        <div class="popup-header">
+            <div class="popup-title">project</div>
+            <button class="popup-close">
+                <img src="assets/close-icon.svg" alt="Close" class="close-icon">
+            </button>
+        </div>
+        <div class="popup-divider"></div>
+        <img src="assets/code-icon.svg" alt="" class="decorative-code">
+        <img src="assets/html-icon.svg" alt="" class="decorative-html">
+        <div class="popup-content project-content">
+            <div class="project-grid">
+                <div class="project-card" data-project="tumbas">
+                    <div class="card-header">
+                        <img src="assets/projects/tumbas-logo.svg" alt="tumbas" class="app-icon">
+                        <div class="card-badge">UI/UX</div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">tumbas</h3>
+                        <p class="project-desc">Digital platform helping farmers sell imperfect harvests to MSMEs and consumers</p>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">UI/UX</span>
+                        <span class="tech-tag">Digital Illustration</span>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-project="koalaern">
+                    <div class="card-header">
+                        <img src="assets/projects/koalaern-logo.svg" alt="koalaern" class="app-icon">
+                        <div class="card-badge">UI/UX</div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">koalærn</h3>
+                        <p class="project-desc">Study companion app with Quick Notes, Flashcards, and Study Planner</p>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Figma</span>
+                        <span class="tech-tag">UI/UX</span>
+                        <span class="tech-tag">Digital Illustration</span>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-project="yearof">
+                    <div class="card-header">
+                        <img src="assets/projects/yotc-logo.svg" alt="Year of..." class="app-icon">
+                        <div class="card-badge">Game</div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Year of The Chef</h3>
+                        <p class="project-desc">Chinese zodiac themed maze game blending culture and fun mechanics</p>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Scratch</span>
+                        <span class="tech-tag">Game Development</span>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-project="fridgifi">
+                    <div class="card-header">
+                        <img src="assets/projects/fridgi-fi-logo.svg" alt="Fridgi-Fi" class="app-icon">
+                        <div class="card-badge">AI</div>
+                    </div>
+                    <div class="project-info">
+                        <h3 class="project-title">Fridgi-Fi</h3>
+                        <p class="project-desc">AI-powered pantry tracker with barcode scanning and budget estimation</p>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">AI</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">GitHub</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Popup -->
+    <div class="popup-window" id="gamePopup" data-type="game">
+        <div class="popup-header">
+            <div class="popup-title">game</div>
+            <button class="popup-close">
+                <img src="assets/close-icon.svg" alt="Close" class="close-icon">
+            </button>
+        </div>
+        <div class="popup-divider"></div>
+        <div class="popup-content game-content">
+            <div class="under-development">
+                <div class="dev-text">Oops! Still cooking this page 🍳</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Detail Popups -->
+    <!-- Tumbas Detail -->
+    <div class="popup-window project-detail-popup" id="tumbasDetailPopup">
+        <div class="popup-header">
+            <div class="popup-title project-detail-title">project detail</div>
+            <button class="popup-close">
+                <img src="assets/close-icon.svg" alt="Close" class="close-icon">
+            </button>
+        </div>
+        <div class="popup-divider"></div>
+        <div class="popup-content project-detail-content">
+            <div class="project-hero">
+                <img src="assets/projects/tumbas-logo.svg" alt="tumbas" class="project-hero-image">
+                <div class="project-basic-info">
+                    <h2 class="project-name">tumbas</h2>
+                    <div class="project-tags">
+                        <span class="project-tag">UI/UX</span>
+                        <span class="project-tag">Team</span>
+                        <span class="project-tag">Competition</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-detail-body">
+                <section class="project-section">
+                    <h3 class="section-title">Summary</h3>
+                    <p class="section-content">tumbas is a project developed for TECHFEST 2025 UI/UX Competition by our team Three Little Pigs. It is a digital platform that helps farmers sell their "imperfect" harvests directly to MSMEs, culinary businesses, and consumers.</p>
+                </section>
+
+                <section class="project-section">
+                    <h3 class="section-title">My Contribution</h3>
+                    <div class="contribution-list">
+                        <div class="contribution-item">
+                            <span>Creating the project's logo and graphics, hand-drawn digitally on iPad with ibisPaint</span>
+                        </div>
+                        <div class="contribution-item">
+                            <span>Designing the user interface and user experience (UI/UX)</span>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="details-grid">
+                    <div class="detail-card">
+                        <h4 class="detail-label">Initiative</h4>
+                        <p class="detail-value">TECHFEST 2025 UI/UX Competition</p>
+                    </div>
+                    <div class="detail-card">
+                        <h4 class="detail-label">Team</h4>
+                        <p class="detail-value">Three Little Pigs</p>
+                    </div>
+                    <div class="detail-card">
+                        <h4 class="detail-label">My Role</h4>
+                        <p class="detail-value">UI/UX Designer & Illustrator</p>
+                    </div>
+                    <div class="detail-card">
+                        <h4 class="detail-label">Tools Used</h4>
+                        <p class="detail-value">Figma, ibisPaint</p>
+                    </div>
+                </div>
+
+                <section class="project-section">
+                    <h3 class="section-title">Skills Applied</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">User Interface Design</span>
+                        <span class="skill-tag">User Experience Design</span>
+                        <span class="skill-tag">Digital Illustration</span>
+                        <span class="skill-tag">Teamwork</span>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h3 class="section-title">Project Links</h3>
+                    <div class="project-links">
+                        <a href="https://www.figma.com/design/btWXZOhuwwHIg6n8smB2cG/tumbas?node-id=0-1&p=f&t=fmJUc4jtuc3TeiwY-0" class="project-link" target="_blank">
+                            <img src="assets/figma-icon.svg" alt="Figma">
+                            <span>Figma File (Design & Components)</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=_pbRKeJ7lIo" class="project-link" target="_blank">
+                            <img src="assets/youtube-icon.svg" alt="YouTube">
+                            <span>Demo Video</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Koalaern Detail -->
+    <div class="popup-window project-detail-popup" id="koalaernDetailPopup">
+        <div class="popup-header">
+            <div class="popup-title project-detail-title">project detail</div>
+            <button class="popup-close">
+                <img src="assets/close-icon.svg" alt="Close" class="close-icon">
+            </button>
+        </div>
+        <div class="popup-divider"></div>
+        <div class="popup-content project-detail-content">
+            <div class="project-hero">
+                <img src="assets/projects/koalaern-logo.svg" alt="koalærn" class="project-hero-image">
+                <div class="project-basic-info">
+                    <h2 class="project-name">koalærn</h2>
+                    <div class="project-tags">
+                        <span class="project-tag">UI/UX</span>
+                        <span class="project-tag">Team</span>
+                        <span class="project-tag">Competition</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-detail-body">
+                <section class="project-section">
+                    <h3 class="section-title">Summary</h3>
+                    <p class="section-content">koalærn is a project developed for the UXVIDIA – Arkavidia 9.0 competition by our team Wawa WIwi Wowo. It is a study companion app that brings together Quick Notes, Flashcards, and a Study Planner in one place.</p>
+                </section>
+
+                <section class="project-section">
+                    <h3 class="section-title">My Contribution</h3>
+                    <div class="contribution-list">
+                        <div class="contribution-item">
+                            <span>Designed the logo and all project graphics, hand-drawn digitally on iPad using ibisPaint</span>
+                        </div>
+                        <div class="contribution-item">
+                            <span>Created the UI design for the Study Planner feature</span>
+                        </div>
+                        <div class="contribution-item">
+                            <span>Collaborated on designing the landing page (login and related screens)</span>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="details-grid">
+                    <div class="detail-card">
+                        <h4 class="detail-label">Initiative</h4>
+                        <p class="detail-value">UXVIDIA – Arkavidia 9.0 Competition</p>
+                    </div>
+                    <div class="detail-card">
+                        <h4 class="detail-label">Team</h4>
+                        <p class="detail-value">Wawa WIwi Wowo</p>
+                    </div>
+                    <div class="detail-card">
+                        <h4 class="detail-label">My Role</h4>
+                        <p class="detail-value">UI Designer & Illustrator</p>
+                    </div>
+                    <div class="detail-card">
+                        <h4 class="detail-label">Tools Used</h4>
+                        <p class="detail-value">Figma, ibisPaint</p>
+                    </div>
+                </div>
+
+                <section class="project-section">
+                    <h3 class="section-title">Skills Applied</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">User Interface Design</span>
+                        <span class="skill-tag">User Experience Design</span>
+                        <span class="skill-tag">Digital Illustration</span>
+                        <span class="skill-tag">Figure Drawing</span>
+                        <span class="skill-tag">Teamwork</span>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h3 class="section-title">Project Links</h3>
+                    <div class="project-links">
+                        <a href="https://www.figma.com/design/OrOs9vbkuyudplba3no0nA/Wawa-Wiwi-Wowo?node-id=0-1&p=f&t=QSfTHvrX77d3WVeV-0" class="project-link" target="_blank">
+                            <img src="assets/figma-icon.svg" alt="Figma">
+                            <span>Figma File (Design & Components)</span>
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=NHxMP5Hvips" class="project-link" target="_blank">
+                            <img src="assets/youtube-icon.svg" alt="YouTube">
+                            <span>Demo Video</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Year of The Chef Detail -->
+    <div class="popup-window project-detail-popup" id="yearofDetailPopup">
+        <div class="popup-header">
+            <div class="popup-title project-detail-title">project detail</div>
+            <button class="popup-close">
+                <img src="assets/close-icon.svg" alt="Close" class="close-icon">
+            </button>
+        </div>
+        <div class="popup-divider"></div>
+        <div class="popup-content project-detail-content">
+            <div class="project-hero">
+                <img src="assets/projects/yotc-logo.svg" alt="Year of The Chef" class="project-hero-image">
+                <div class="project-basic-info">
+                    <h2 class="project-name">Year of The Chef</h2>
+                    <div class="project-tags">
+                        <span class="project-tag">Game</span>
+                        <span class="project-tag">Team</span>
+                        <span class="project-tag">Course Project</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-detail-body">
+                <section class="project-section">
+                    <h3 class="section-title">Summary</h3>
+                    <p class="section-content">Year of The Chef is a group project developed for our Multimedia Programming Foundation course. It is a Chinese zodiac and culinary themed maze game built with Scratch, where players navigate as a Shio Chef collecting traditional treats.</p>
+                </section>
+
+                <section class="project-section">
+                    <h3 class="section-title">My Contribution</h3>
+                    <div class="contribution-list">
+                        <div class="contribution-item">
+                            <span>Designed the maze layout and built the maze in Scratch</span>
+                        </div>
+                        <div class="contribution-item">
+                            <span>Coded the Customize Skin Page in Scratch</span>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="details-grid">
+                    <div class="detail-card">
+                        <h4 class="detail-label">Initiative</h4>
+                        <p class="detail-value">Multimedia Programming Foundation Course</p>
+                    </div>
+                    <div class="detail-card">
+                        <h4 class="detail-label">Team</h4>
+                        <p class="detail-value">Group Project</p>
+                    </div>
+                    <div class="detail-card">
+                        <h4 class="detail-label">My Role</h4>
+                        <p class="detail-value">Game Designer & Programmer</p>
+                    </div>
+                    <div class="detail-card">
+                        <h4 class="detail-label">Tools Used</h4>
+                        <p class="detail-value">Scratch</p>
+                    </div>
+                </div>
+
+                <section class="project-section">
+                    <h3 class="section-title">Skills Applied</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Scratch</span>
+                        <span class="skill-tag">Game Design</span>
+                        <span class="skill-tag">UI Design</span>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h3 class="section-title">Project Links</h3>
+                    <div class="project-links">
+                        <a href="https://scratch.mit.edu/projects/1187732261" class="project-link" target="_blank">
+                            <img src="assets/scratch-icon.svg" alt="Scratch">
+                            <span>Scratch Project</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fridgi-Fi Detail -->
+    <div class="popup-window project-detail-popup" id="fridgifiDetailPopup">
+        <div class="popup-header">
+            <div class="popup-title project-detail-title">project detail</div>
+            <button class="popup-close">
+                <img src="assets/close-icon.svg" alt="Close" class="close-icon">
+            </button>
+        </div>
+        <div class="popup-divider"></div>
+        <div class="popup-content project-detail-content">
+            <div class="project-hero">
+                <img src="assets/projects/fridgi-fi-logo.svg" alt="Fridgi-Fi" class="project-hero-image">
+                <div class="project-basic-info">
+                    <h2 class="project-name">Fridgi-Fi</h2>
+                    <div class="project-tags">
+                        <span class="project-tag">AI</span>
+                        <span class="project-tag">Software Engineering</span>
+                        <span class="project-tag">Team</span>
+                        <span class="project-tag">Course Project</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-detail-body">
+                <section class="project-section">
+                    <h3 class="section-title">Summary</h3>
+                    <p class="section-content">Fridgi-Fi is a group project developed for our Software Engineering course. It is an AI-powered pantry tracker concept designed to help households manage food and grocery supplies with barcode scanning and AI-based budget estimation.</p>
+                </section>
+
+                <section class="project-section">
+                    <h3 class="section-title">My Contribution</h3>
+                    <div class="contribution-list">
+                        <div class="contribution-item">
+                            <span>Designed the project logo and selected the color palette</span>
+                        </div>
+                        <div class="contribution-item">
+                            <span>Created UI/UX design in Figma for Home Page, Budget Page, and Edit Budget Page</span>
+                        </div>
+                        <div class="contribution-item">
+                            <span>Developed the AI-based budget estimation feature</span>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="details-grid">
+                    <div class="detail-card">
+                        <h4 class="detail-label">Initiative</h4>
+                        <p class="detail-value">Software Engineering Course</p>
+                    </div>
+                    <div class="detail-card">
+                        <h4 class="detail-label">Team</h4>
+                        <p class="detail-value">Group Project</p>
+                    </div>
+                    <div class="detail-card">
+                        <h4 class="detail-label">My Role</h4>
+                        <p class="detail-value">AI Developer & UI/UX Designer</p>
+                    </div>
+                    <div class="detail-card">
+                        <h4 class="detail-label">Tools Used</h4>
+                        <p class="detail-value">Figma, Flutter, Dart, JSON, GitHub</p>
+                    </div>
+                </div>
+
+                <section class="project-section">
+                    <h3 class="section-title">Skills Applied</h3>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Artificial Intelligence</span>
+                        <span class="skill-tag">Flutter</span>
+                        <span class="skill-tag">Dart</span>
+                        <span class="skill-tag">JSON</span>
+                        <span class="skill-tag">GitHub</span>
+                    </div>
+                </section>
+
+                <section class="project-section">
+                    <h3 class="section-title">Project Links</h3>
+                    <div class="project-links">
+                        <a href="https://github.com/wilkinson05/Fridgify_" class="project-link" target="_blank">
+                            <img src="assets/github-icon.svg" alt="GitHub">
+                            <span>Source Code</span>
+                        </a>
+                        <a href="https://www.figma.com/design/sWaq8OAKMYFp3oNssT4b5A/Fridgi-Fi?node-id=0-1&p=f&t=v1s6pSWjEPWlYn4E-0" class="project-link" target="_blank">
+                            <img src="assets/figma-icon.svg" alt="Figma">
+                            <span>Figma File (Design & Components)</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
