@@ -1124,11 +1124,6 @@ html, body {
     transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-.detail-card:hover {
-    transform: translateY(-3px);
-    border-color: rgba(255, 181, 222, 0.5);
-}
-
 .detail-label {
     font-family: 'Poppins', sans-serif;
     font-size: 13px;
@@ -1447,11 +1442,6 @@ body.dark-mode .detail-card {
     background: #3a2f3a;
     border: 2px solid rgba(80, 70, 85, 0.9) !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-body.dark-mode .detail-card:hover {
-    border-color: rgba(80, 70, 85, 1) !important;
-    transform: translateY(-3px);
 }
 
 /* PDF item border (dashed line in CV) */
