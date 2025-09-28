@@ -1,4 +1,4 @@
-/* ==================== GLOBAL STYLES & RESET ==================== */
+/* ==================== GLOBAL RESET & BASE STYLES ==================== */
 html, body {
     margin: 0;
     padding: 0;
@@ -7,10 +7,10 @@ html, body {
     overflow: hidden;
     font-family: 'Poppins', sans-serif;
     background: #FFFAFD;
+    min-width: 320px;
 }
 
-/* ==================== LANDING PAGE ==================== */
-
+/* ==================== LANDING PAGE STYLES ==================== */
 .landing-page {
     position: relative;
     width: 100vw;
@@ -19,15 +19,16 @@ html, body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    min-width: 320px;
 }
 
 .welcome {
     text-align: center;
     color: #735465;
     margin-bottom: 40px;
+    padding: 0 20px;
 }
 
-/* Welcome Text */
 .welcome h1 {
     font-family: 'Pacifico', cursive;
     font-weight: 400;
@@ -47,21 +48,22 @@ html, body {
     color: #8a6b7a;
 }
 
-/* Main Content Area */
 .main-content-area {
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 80px;
+    padding: 0 20px;
 }
 
-/* Button Grid */
 .button-grid {
     display: grid;
     grid-template-columns: repeat(3, 75px);
     gap: 40px;
     justify-items: center;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 .button {
@@ -80,6 +82,7 @@ html, body {
     cursor: pointer;
     opacity: 1;
     transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+    flex-shrink: 0;
 }
 
 .button img {
@@ -107,16 +110,14 @@ html, body {
     transform: scale(0.95);
 }
 
-@keyframes float {
-    0%, 100% { 
-        transform: translate(-50%, -50%) translateY(0px) rotate(0deg); 
-    }
-    50% { 
-        transform: translate(-50%, -50%) translateY(-5px) rotate(5deg); 
-    }
+.button:hover {
+    transform: translateY(-2px);
 }
 
-/* Bottom Block - Full width, no text */
+.button:hover.hovered {
+    transform: scale(1.1) translateY(-2px);
+}
+
 .bottom-block {
     position: absolute;
     bottom: 0;
@@ -128,47 +129,24 @@ html, body {
     border-radius: 20px 20px 0px 0px;
     padding: 0;
     margin: 0;
+    min-width: 320px;
 }
 
-/* Hover effects for better interaction */
-.button:hover {
-    transform: translateY(-2px);
+/* ==================== STAR DECORATION STYLES ==================== */
+.star-decoration {
+    position: absolute;
+    left: calc(50% + 98px + 20px);
+    top: calc(50% + 60px);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    animation: float 3s ease-in-out infinite;
+    z-index: 1000;
 }
 
-.button:hover.hovered {
-    transform: scale(1.1) translateY(-2px);
-}
-
-/* Responsive adjustments */
-@media (max-width: 480px) {
-    .welcome h1 {
-        font-size: 70px;
-    }
-    
-    .welcome p {
-        font-size: 30px;
-    }
-    
-    .button-grid {
-        grid-template-columns: repeat(3, 70px);
-        gap: 30px;
-    }
-    
-    .button {
-        width: 70px;
-        height: 70px;
-    }
-    
-    .bottom-block {
-        height: 150px;
-    }
-
-    .button img {
-        width: 25px;
-        height: 25px;
-        margin-top: 8px;
-        margin-bottom: 0px;
-    }
+.star-decoration img {
+    width: 65px;
+    height: 65px;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .eyes {
@@ -215,65 +193,6 @@ html, body {
     }
 }
 
-/* ==================== STAR POSITION ==================== */
-.star-decoration {
-    position: absolute;
-    /* Grid width: 305px (225px buttons + 80px gaps) */
-    left: calc(50% + 98px + 20px); /* Setengah grid + offset ke kanan */
-    top: calc(50% + 60px); /* Setengah button height + setengah gap */
-    transform: translate(-50%, -50%);
-    cursor: pointer;
-    animation: float 3s ease-in-out infinite;
-    z-index: 1000;
-}
-
-.star-decoration img {
-    width: 65px;
-    height: 65px;
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.2));
-}
-
-/* Untuk HP */
-@media (max-width: 480px) {
-    .star-decoration {
-        /* Grid HP width: 270px (210px buttons + 60px gaps) */
-        left: calc(50% + 85px + 17px); /* Setengah grid HP + offset */
-        top: calc(50% + 55px);
-        transform: translate(-50%, -50%) scale(0.8);
-    }
-    
-    .star-decoration img {
-        width: 55px;
-        height: 55px;
-    }
-
-    .star-decoration.smiling .mouth {
-        width: 6px;
-        height: 3px;
-        border-radius: 1px 1px 3px 3px;
-        transform: translateX(-50%) translateY(1px);
-    }
-}
-
-/* Hover hanya desktop */
-@media (min-width: 481px) {
-    .star-decoration:hover {
-        animation: float 3s ease-in-out infinite, bounce 0.5s ease;
-    }
-    
-    .star-decoration:hover .mouth {
-        width: 6px;
-        height: 3px;
-        border-radius: 1px 1px 3px 3px;
-        transform: translateX(-50%) translateY(1px);
-    }
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); }
-    50% { transform: translate(-50%, -50%) scale(1.1); }
-}
-
 @keyframes float {
     0%, 100% { 
         transform: translate(-50%, -50%) translateY(0px) rotate(0deg); 
@@ -283,7 +202,12 @@ html, body {
     }
 }
 
-/* Popup Styles */
+@keyframes bounce {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+}
+
+/* ==================== POPUP WINDOW STYLES ==================== */
 .popup-overlay {
     position: fixed;
     top: 0;
@@ -314,6 +238,7 @@ html, body {
     display: none;
     overflow: hidden;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    min-width: 300px;
 }
 
 .popup-window.active {
@@ -368,7 +293,6 @@ html, body {
     height: 35px;
 }
 
-/* Thicker Transparent Line Divider */
 .popup-divider {
     height: 2px;
     background: linear-gradient(90deg, 
@@ -379,7 +303,6 @@ html, body {
     margin: 0 25px;
 }
 
-/* Popup Content Height */
 .popup-content {
     display: flex;
     height: calc(100% - 82px);
@@ -399,7 +322,21 @@ html, body {
     margin-bottom: 15px;
 }
 
-/* About Me Content Styles */
+.text-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.text-content::-webkit-scrollbar-track {
+    background: rgba(115, 84, 101, 0.1);
+    border-radius: 3px;
+}
+
+.text-content::-webkit-scrollbar-thumb {
+    background: rgba(115, 84, 101, 0.3);
+    border-radius: 3px;
+}
+
+/* ==================== ABOUT POPUP STYLES ==================== */
 .about-content {
     position: relative;
     flex-direction: row;
@@ -408,7 +345,6 @@ html, body {
     justify-content: center;
 }
 
-/* Decorative Elements for About Me Popup */
 .decorative-ribbon {
     position: absolute;
     top: 30px;
@@ -416,7 +352,7 @@ html, body {
     width: 45px;
     height: 45px;
     opacity: 0.7;
-    z-index: 1;
+    z-index: 1002;
     animation: ribbon-float 4s ease-in-out infinite;
 }
 
@@ -427,11 +363,26 @@ html, body {
     width: 35px;
     height: 35px;
     opacity: 0.6;
-    z-index: 1;
+    z-index: 1002;
     animation: moon-glow 3s ease-in-out infinite;
 }
 
-/* Animations for About Me decorations */
+.about-content .text-content {
+    padding: 20px 25px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-content .text-content p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #735465;
+}
+
 @keyframes ribbon-float {
     0%, 100% { 
         transform: translateY(0) rotate(0deg) scale(1); 
@@ -455,50 +406,7 @@ html, body {
     }
 }
 
-/* About Me text content styling */
-.about-content .text-content {
-    padding: 20px 25px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.about-content .text-content p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    line-height: 1.7;
-    color: #735465;
-}
-
-/* Responsive adjustments for About Me */
-@media (max-width: 768px) {
-    .decorative-ribbon {
-        width: 35px;
-        height: 35px;
-        top: 20px;
-        left: 20px;
-    }
-    
-    .decorative-moon {
-        width: 30px;
-        height: 30px;
-        bottom: 25px;
-        right: 20px;
-    }
-    
-    .about-content .text-content {
-        padding: 20px 25px;
-    }
-    
-    .about-content .text-content p {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-}
-
-/* Decorative Elements for Contact Popup */
+/* ==================== CONTACT POPUP STYLES ==================== */
 .contact-content {
     position: relative;
     flex-direction: column; 
@@ -515,9 +423,8 @@ html, body {
     width: 40px;
     height: 40px;
     opacity: 0.7;
-    z-index: 1;
+    z-index: 1002;
     animation: float-decor 3s ease-in-out infinite;
-
 }
 
 .decorative-spark {
@@ -527,23 +434,10 @@ html, body {
     width: 30px;
     height: 30px;
     opacity: 0.6;
-    z-index: 1;
+    z-index: 1002;
     animation: sparkle 2s ease-in-out infinite;
 }
 
-/* Floating animation for strawberry */
-@keyframes float-decor {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-5px) rotate(5deg); }
-}
-
-/* Sparkle animation for spark */
-@keyframes sparkle {
-    0%, 100% { opacity: 0.4; transform: scale(1); }
-    50% { opacity: 0.8; transform: scale(1.1); }
-}
-
-/* Contact Styles */
 .contact-info {
     padding: 10px 30px 20px 30px; 
     display: flex;
@@ -596,93 +490,21 @@ html, body {
     color: #8a6b7a;
 }
 
-/* Responsive adjustments for decorations */
-@media (max-width: 768px) {
-    .decorative-strawberry {
-        width: 30px;
-        height: 30px;
-        top: 15px;
-        right: 20px;
-    }
-    
-    .decorative-spark {
-        width: 25px;
-        height: 25px;
-        bottom: 20px;
-        left: 15px;
-    }
-
-    .contact-item {
-        flex-direction: row !important; /* Tetap horizontal di mobile */
-        align-items: center !important;
-        text-align: left !important;
-        padding: 10px 15px !important;
-        width: 100% !important;
-        max-width: 320px !important;
-    }
-    
-    .contact-item .label {
-        min-width: 70px !important; /* Pastikan label konsisten */
-        text-align: left !important;
-        margin-right: 10px !important;
-    }
-    
-    .contact-item .value {
-        flex: 1 !important;
-        text-align: left !important;
-        word-break: break-all !important;
-    }
-    
-    /* Tata letak vertikal: icon di atas, text di bawah */
-    .contact-item {
-        display: flex !important;
-        flex-direction: row !important;
-        align-items: center !important;
-        gap: 12px !important;
-    }
-    
-    .contact-icon {
-        flex-shrink: 0 !important;
-    }
+@keyframes float-decor {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-5px) rotate(5deg); }
 }
 
-/* Untuk mobile sangat kecil (di bawah 400px) */
-@media (max-width: 400px) {
-    .decorative-strawberry {
-        width: 30px;
-        height: 30px;
-        top: 15px;
-        right: 20px;
-    }
-    
-    .decorative-spark {
-        width: 25px;
-        height: 25px;
-        bottom: 20px;
-        left: 15px;
-    }
-    
-    .contact-item {
-        max-width: 280px !important;
-        padding: 8px 12px !important;
-    }
-    
-    .contact-item .label {
-        min-width: 60px !important;
-        font-size: 12px !important;
-    }
-    
-    .contact-item .value {
-        font-size: 12px !important;
-    }
+@keyframes sparkle {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
 }
 
-/* CV Styles - No illustration */
+/* ==================== CV POPUP STYLES ==================== */
 .cv-content {
     flex-direction: row;
 }
 
-/* Enhanced PDF Styles with Center Alignment */
 .cv-pdf-container {
     padding: 25px;
     display: grid;
@@ -794,28 +616,7 @@ html, body {
     height: 18px;
 }
 
-/* Responsive for mobile */
-@media (max-width: 768px) {
-    .cv-content {
-        overflow-y: auto !important; /* Biarkan scrollable */
-        height: calc(100% - 82px) !important;
-    }
-    
-    .cv-pdf-container {
-        min-height: 400px !important; /* Pastikan cukup tinggi untuk scroll */
-        padding: 20px 15px !important;
-    }
-    
-    .pdf-item {
-        min-height: 180px !important;
-    }
-
-    .cv-icons {
-        width: 25%;
-    }
-}
-
-/* Project Styles - Fixed Size Modern Card Grid */
+/* ==================== PROJECTS POPUP STYLES ==================== */
 .project-content {
     position: relative;
     flex-direction: row;
@@ -826,7 +627,6 @@ html, body {
     padding: 10px 0;
 }
 
-/* Decorative elements */
 .decorative-code {
     position: absolute;
     top: 100px;
@@ -859,7 +659,6 @@ html, body {
     box-sizing: border-box;
 }
 
-/* Project Card */
 .project-card {
     background: rgba(229, 232, 253, 0.3);
     border-radius: 12px;
@@ -875,11 +674,6 @@ html, body {
     justify-content: space-between;
 }
 
-.project-card::before {
-    content: none;
-}
-
-/* Project Card Hover */
 .project-card:hover {
     background: rgba(229, 232, 253, 0.5);
     transform: translateY(-3px);
@@ -950,33 +744,9 @@ html, body {
     color: #735465;
     font-weight: 500;
     white-space: nowrap;
+    overflow: hidden;
 }
 
-/* Responsive adjustments for Project Popup */
-@media (max-width: 768px) {
-    .decorative-code {
-        top: 100px !important;
-        left: 25px !important;
-        width: 25px !important;
-        height: 25px !important;
-        z-index: 1 !important;
-    }
-    
-    .decorative-html {
-        bottom: 60px !important;
-        right: 25px !important;
-        width: 25px !important;
-        height: 25px !important;
-        z-index: 1 !important;
-    }
-    
-    .project-content {
-        position: relative;
-        z-index: 2;
-    }
-}
-
-/* Scrollbar for project content */
 .project-content::-webkit-scrollbar {
     width: 4px;
 }
@@ -991,7 +761,7 @@ html, body {
     border-radius: 2px;
 }
 
-/* Project Detail Popup Styles */
+/* ==================== PROJECT DETAIL STYLES ==================== */
 .project-detail-popup {
     width: 800px;
     max-width: 95vw;
@@ -1005,7 +775,6 @@ html, body {
     padding: 0;
 }
 
-/* Project Hero Section */
 .project-hero {
     position: relative;
     background: linear-gradient(135deg, rgba(229, 232, 253, 0.3) 0%, rgba(255, 245, 251, 0.3) 100%);
@@ -1054,7 +823,6 @@ html, body {
     color: #735465;
 }
 
-/* Project Detail Body */
 .project-detail-body {
     padding: 30px;
     display: flex;
@@ -1087,7 +855,6 @@ html, body {
     margin: 0;
 }
 
-/* Contribution List */
 .contribution-list {
     display: flex;
     flex-direction: column;
@@ -1109,7 +876,6 @@ html, body {
     margin-top: 2px;
 }
 
-/* Details Grid */
 .details-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1143,7 +909,6 @@ html, body {
     line-height: 1.4;
 }
 
-/* Skills Tags */
 .skills-tags {
     display: flex;
     gap: 10px;
@@ -1160,7 +925,6 @@ html, body {
     border: 1px solid rgba(229, 232, 253, 0.6);
 }
 
-/* Project Links */
 .project-links {
     display: flex;
     gap: 15px;
@@ -1192,75 +956,7 @@ html, body {
     height: 20px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .project-hero {
-        flex-direction: column;
-        text-align: center;
-        padding: 20px;
-        gap: 20px;
-    }
-    
-    .project-hero-image {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .project-name {
-        font-size: 24px;
-    }
-    
-    .project-detail-body {
-        padding: 20px;
-        gap: 20px;
-    }
-    
-    .project-section {
-        padding: 20px;
-    }
-    
-    .details-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .project-links {
-        flex-direction: column;
-    }
-    
-    .contribution-item {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .skills-tags {
-        justify-content: center;
-    }
-}
-
-/* Fix decorative icons position in project popup */
-.project-content .decorative-code,
-.project-content .decorative-html {
-    position: absolute;
-    z-index: 1;
-}
-
-.project-content .decorative-code {
-    top: 20px;
-    left: 30px;
-    width: 30px;
-    height: 30px;
-    opacity: 0.6;
-}
-
-.project-content .decorative-html {
-    bottom: 20px;
-    right: 30px;
-    width: 30px;
-    height: 30px;
-    opacity: 0.6;
-}
-
-/* Game Styles - No illustration */
+/* ==================== GAME POPUP STYLES ==================== */
 .game-content {
     flex-direction: row;
 }
@@ -1281,47 +977,11 @@ html, body {
     color: #8a6b7a;
 }
 
-/* Scrollbar */
-.text-content::-webkit-scrollbar {
-    width: 6px;
-}
-
-.text-content::-webkit-scrollbar-track {
-    background: rgba(115, 84, 101, 0.1);
-    border-radius: 3px;
-}
-
-.text-content::-webkit-scrollbar-thumb {
-    background: rgba(115, 84, 101, 0.3);
-    border-radius: 3px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .popup-content {
-        flex-direction: column;
-    }
-    
-    .cv-pdf-container,
-    .project-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-content,
-    .cv-content,
-    .project-content,
-    .game-content {
-        flex-direction: column;
-    }
-}
-
-
 /* ==================== DARK MODE STYLES ==================== */
 body.dark-mode {
     background: #2a1f2a;
 }
 
-/* All text becomes #E8DDE8 */
 body.dark-mode .welcome,
 body.dark-mode .welcome strong,
 body.dark-mode .button span,
@@ -1349,7 +1009,6 @@ body.dark-mode .dev-text {
     color: #E8DDE8 !important;
 }
 
-/* Icon filter for dark mode - except project logos and close icon */
 body.dark-mode .button img,
 body.dark-mode .contact-icon,
 body.dark-mode .zoom-icon,
@@ -1368,7 +1027,6 @@ body.dark-mode .decorative-html {
         saturate(0.8);
 }
 
-/* Clover and Heart icon - same as decorative icons */
 body.dark-mode .cv-icon {
     filter: 
         brightness(0) 
@@ -1378,7 +1036,6 @@ body.dark-mode .cv-icon {
         saturate(0.8);
 }
 
-/* Project logo on card and close icon remain original - no filter */
 body.dark-mode .app-icon,
 body.dark-mode .project-hero-image,
 body.dark-mode .close-icon {
@@ -1397,7 +1054,6 @@ body.dark-mode .mouth {
     background: #2A1F2A !important;
 }
 
-/* Background elements */
 body.dark-mode .button {
     background: linear-gradient(180deg, rgba(60, 55, 80, 0.8) 93.27%, #8a4a6e 100%);
     box-shadow: 2px 3px 4px 1px rgba(0, 0, 0, 0.4), 
@@ -1414,7 +1070,6 @@ body.dark-mode .bottom-block {
                 inset 2px 4px 4px 10px rgba(40, 35, 50, 0.3);
 }
 
-/* Popup styles - using the same border color */
 body.dark-mode .popup-window {
     background: #3a2f3a;
     border: 2px solid rgba(80, 70, 85, 0.9);
@@ -1437,14 +1092,12 @@ body.dark-mode .popup-divider {
         transparent 100%);
 }
 
-/* Detail card border - more contrast */
 body.dark-mode .detail-card {
     background: #3a2f3a;
     border: 2px solid rgba(80, 70, 85, 0.9) !important;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* PDF item border (dashed line in CV) */
 body.dark-mode .pdf-item {
     background: rgba(60, 55, 80, 0.3);
     border: 2px dashed rgba(80, 70, 85, 0.9) !important;
@@ -1455,7 +1108,6 @@ body.dark-mode .pdf-item:hover {
     border-color: rgba(80, 70, 85, 1) !important;
 }
 
-/* CONTACT ITEM BORDER */
 body.dark-mode .contact-item {
     background: rgba(60, 55, 80, 0.3);
     border: 1px solid rgba(80, 70, 85, 0.9) !important;
@@ -1466,7 +1118,6 @@ body.dark-mode .contact-item:hover {
     border: 1px solid rgba(80, 70, 85, 1) !important;
 }
 
-/* PROJECT CARD BORDER */
 body.dark-mode .project-card {
     background: rgba(60, 55, 80, 0.3);
     border: 2px solid rgba(80, 70, 85, 0.7) !important;
@@ -1477,24 +1128,20 @@ body.dark-mode .project-card:hover {
     border-color: rgba(80, 70, 85, 0.9) !important;
 }
 
-/* PROJECT SECTION BORDER */
 body.dark-mode .project-section {
     background: rgba(50, 45, 60, 0.8);
     border: 1px solid rgba(80, 70, 85, 0.9) !important;
 }
 
-/* SECTION TITLE BORDER */
 body.dark-mode .section-title {
     border-bottom: 2px solid rgba(80, 70, 85, 0.9) !important;
 }
 
-/* SKILL TAG BORDER */
 body.dark-mode .skill-tag {
     background: rgba(60, 55, 80, 0.4);
     border: 1px solid rgba(80, 70, 85, 0.9) !important;
 }
 
-/* PROJECT LINK BORDER */
 body.dark-mode .project-link {
     background: rgba(60, 55, 80, 0.3);
     border: 2px solid rgba(80, 70, 85, 0.7) !important;
@@ -1505,31 +1152,26 @@ body.dark-mode .project-link:hover {
     border-color: rgba(80, 70, 85, 0.9) !important;
 }
 
-/* CARD BADGE BORDER */
 body.dark-mode .card-badge {
     background: rgba(60, 55, 80, 0.6);
     border: 1px solid rgba(80, 70, 85, 0.7);
 }
 
-/* TECH TAG BORDER */
 body.dark-mode .tech-tag {
     background: rgba(138, 74, 110, 0.2);
     border: 1px solid rgba(80, 70, 85, 0.5);
 }
 
-/* PROJECT TAG BORDER */
 body.dark-mode .project-tag {
     background: rgba(138, 74, 110, 0.3);
     border: 1px solid rgba(80, 70, 85, 0.6);
 }
 
-/* PROJECT HERO BORDER */
 body.dark-mode .project-hero {
     background: linear-gradient(135deg, rgba(60, 55, 80, 0.3) 0%, rgba(74, 53, 74, 0.3) 100%);
     border-bottom: 2px solid rgba(80, 70, 85, 0.9);
 }
 
-/* BUTTON HOVER EFFECTS */
 body.dark-mode .zoom-pdf {
     background: rgba(60, 55, 80, 0.9);
     border: 1px solid rgba(80, 70, 85, 0.7);
@@ -1540,7 +1182,6 @@ body.dark-mode .zoom-pdf:hover {
     border-color: rgba(80, 70, 85, 0.9);
 }
 
-/* SCROLLBAR DARK MODE */
 body.dark-mode ::-webkit-scrollbar-track {
     background: rgba(40, 35, 45, 0.1);
 }
@@ -1565,12 +1206,10 @@ body.dark-mode .project-content::-webkit-scrollbar-thumb {
     background: rgba(138, 74, 110, 0.2);
 }
 
-/* SMOOTH TRANSITION FOR ALL CHANGES */
 body.dark-mode * {
     transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* SPECIFIC FILTER TRANSITION FOR ICONS */
 body.dark-mode .button img,
 body.dark-mode .contact-icon,
 body.dark-mode .cv-icon,
@@ -1585,104 +1224,257 @@ body.dark-mode .decorative-html {
     transition: filter 0.5s ease;
 }
 
-/* SPECIFIC TRANSITION FOR STAR DECORATION */
 body.dark-mode .star-decoration img {
     transition: all 0.5s ease;
 }
 
-/* TRANSITION FOR STAR EYES AND MOUTH */
 body.dark-mode .eye,
 body.dark-mode .mouth {
     transition: background-color 0.5s ease;
 }
 
-/* ==================== CUSTOM SCROLLBAR FOR DARK MODE ==================== */
+/* ==================== RESPONSIVE STYLES ==================== */
+/* ==================== LANDSCAPE MODE STYLES ==================== */
+@media (max-height: 600px) and (orientation: landscape) {
+    .welcome h1 {
+        font-size: 70px;
+        line-height: 1;
+    }
 
-/* MAIN SCROLLBAR FOR THE ENTIRE PAGE (IF APPLICABLE) */
-body.dark-mode::-webkit-scrollbar {
-    width: 12px;
+    .welcome p {
+        font-size: 30px;
+    }
+
+    .button-grid {
+        gap: 25px;
+        align-items: center;
+    }
+
+    .button {
+        width: 70px;
+        height: 70px;
+    }
+
+    .button img {
+        width: 22px;
+        height: 22px;
+        margin-top: 5px;
+        margin-bottom: 3px;
+    }
+
+    .star-decoration {
+        left: calc(50% + 83px + 20px);
+        top: calc(50% + 50px);
+    }
+
+    .star-decoration img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .eyes {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        gap: 8px;
+    }
+
+    .eye {
+        width: 5px;
+        height: 5px;
+    }
+
+    .mouth {
+        position: absolute;
+        top: 52%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 3px;
+        height: 3px;
+    }
 }
 
-body.dark-mode::-webkit-scrollbar-track {
-    background: rgba(40, 35, 45, 0.3);
-    border-radius: 6px;
+/* ==================== POPUP RESPONSIVE FIXES ==================== */
+@media (max-width: 768px) {
+    .popup-window {
+        width: 90vw;
+        height: 80vh;
+    }
+
+    .popup-header {
+        padding: 15px 20px;
+        height: 50px;
+    }
+
+    .popup-title {
+        font-size: 16px;
+    }
+
+    .popup-close {
+        width: 30px;
+        height: 30px;
+    }
+
+    .close-icon {
+        width: 30px;
+        height: 30px;
+    }
+    
+   .contact-content {
+        justify-content: center;
+        padding: 10px;
+    }
+
+    .contact-info {
+        width: 100%;
+        max-width: 300px;
+        padding: 10px 20px;
+        font-size: 15px;
+    }
 }
 
-body.dark-mode::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, rgba(138, 74, 110, 0.6) 0%, rgba(100, 60, 90, 0.8) 100%);
-    border-radius: 6px;
-    border: 2px solid rgba(40, 35, 45, 0.3);
+/* ==================== MOBILE LANDSCAPE SPECIFIC FIXES ==================== */
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+    .welcome {
+        margin-bottom: 10px;
+    }
+
+    .star-decoration {
+        left: calc(50% + 80px + 20px);
+        top: calc(50% + 53px);
+    }
+
+    .cv-content .pdf-item {
+        min-height: 100px;
+    }
+
+    .cv-content .cv-icons {
+        height: 60px;
+    }
+
+    .cv-content .cv-icon {
+        max-height: 50px;
+    }
+
+    .contact-content {
+        justify-content: flex-start;
+        padding-top: 10px;
+    }
+
+    .contact-info {
+        max-width: 100%;
+        padding: 0 20px;
+    }
+
+    .contact-item {
+        padding: 8px 12px;
+    }
+
+    .about-content .text-content {
+        padding: 0px;
+        margin: 100px;
+    }
+
+    .about-content .text-content p {
+        font-size: 13px;
+    }
 }
 
-body.dark-mode::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, rgba(138, 74, 110, 0.8) 0%, rgba(120, 70, 100, 0.9) 100%);
+/* ==================== IPHONE SPECIFIC FIXES ==================== */
+@supports (-webkit-touch-callout: none) {
+    .popup-close {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    .button {
+        cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+        .popup-window {
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .text-content {
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 20px;
+        }
+    }
 }
 
-/* SCROLLBAR FOR POPUP CONTENT */
-body.dark-mode .text-content::-webkit-scrollbar {
-    width: 8px;
+/* ==================== ENSURE CONTENT CENTERING ==================== */
+.contact-content,
+.about-content,
+.cv-content,
+.game-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-body.dark-mode .text-content::-webkit-scrollbar-track {
-    background: rgba(40, 35, 45, 0.2);
-    border-radius: 4px;
-    margin: 5px 0;
+/* ==================== SCROLLABLE CONTENT FOR SMALL HEIGHTS ==================== */
+@media (max-height: 500px) {
+    .popup-content {
+        overflow-y: auto;
+    }
+
+    .text-content {
+        padding-bottom: 20px;
+    }
 }
 
-body.dark-mode .text-content::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, rgba(138, 74, 110, 0.5) 0%, rgba(100, 60, 90, 0.7) 100%);
-    border-radius: 4px;
-    border: 1px solid rgba(40, 35, 45, 0.2);
+/* ==================== STAR HOVER ==================== */
+@media (max-width: 480px) {
+    body.dark-mode .star-decoration {
+        left: calc(50% + 98px + 20px) !important;
+        top: calc(50% + 60px) !important;
+        transform: translate(-50%, -50%);
+    }
+    
+    .star-decoration.smiling .mouth {
+        width: 6px !important;
+        height: 3px !important;
+        border-radius: 1px 1px 3px 3px !important;
+        transform: translateX(-50%) translateY(1px) !important;
+    }
 }
 
-body.dark-mode .text-content::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, rgba(138, 74, 110, 0.7) 0%, rgba(120, 70, 100, 0.8) 100%);
+@media (max-width: 900px) and (orientation: landscape) and (max-height: 500px) {
+    body.dark-mode .star-decoration {
+        left: calc(50% + 80px + 20px) !important;
+        top: calc(50% + 53px) !important;
+    }
+    
+    .mouth {
+        position: absolute !important;
+        top: 52% !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        width: 3px !important;
+        height: 3px !important;
+        background: #735465 !important;
+        border-radius: 50% !important;
+    }
+        
+    .star-decoration.smiling .mouth {
+        width: 6px !important;
+        height: 3px !important;
+        border-radius: 1px 1px 3px 3px !important;
+        transform: translateX(-50%) translateY(1px) !important;
+    }
 }
 
-/* SCROLLBAR FOR PROJECT CONTENT */
-body.dark-mode .project-content::-webkit-scrollbar {
-    width: 6px;
-}
-
-body.dark-mode .project-content::-webkit-scrollbar-track {
-    background: rgba(40, 35, 45, 0.15);
-    border-radius: 3px;
-}
-
-body.dark-mode .project-content::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, rgba(138, 74, 110, 0.4) 0%, rgba(100, 60, 90, 0.6) 100%);
-    border-radius: 3px;
-}
-
-body.dark-mode .project-content::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(180deg, rgba(138, 74, 110, 0.6) 0%, rgba(120, 70, 100, 0.7) 100%);
-}
-
-/* SCROLLBAR FOR PROJECT DETAIL CONTENT */
-body.dark-mode .project-detail-content::-webkit-scrollbar {
-    width: 8px;
-}
-
-body.dark-mode .project-detail-content::-webkit-scrollbar-track {
-    background: rgba(40, 35, 45, 0.2);
-    border-radius: 4px;
-}
-
-body.dark-mode .project-detail-content::-webkit-scrollbar-thumb {
-    background: linear-gradient(180deg, rgba(138, 74, 110, 0.5) 0%, rgba(100, 60, 90, 0.7) 100%);
-    border-radius: 4px;
-    border: 1px solid rgba(40, 35, 45, 0.2);
-}
-
-/* FIREFOX SUPPORT (OPTIONAL) */
-body.dark-mode {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(138, 74, 110, 0.6) rgba(40, 35, 45, 0.3);
-}
-
-/* SMOOTH TRANSITION FOR SCROLLBAR */
-body.dark-mode ::-webkit-scrollbar,
-body.dark-mode ::-webkit-scrollbar-track,
-body.dark-mode ::-webkit-scrollbar-thumb {
-    transition: all 0.3s ease;
+@media (min-width: 481px) {
+    .star-decoration:hover {
+        animation: float 3s ease-in-out infinite, bounce 0.5s ease;
+    }
+    
+    .star-decoration:hover .mouth {
+        width: 6px;
+        height: 3px;
+        border-radius: 1px 1px 3px 3px;
+        transform: translateX(-50%) translateY(1px);
+    }
 }
