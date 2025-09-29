@@ -65,6 +65,10 @@ This portfolio website was designed and developed to present my work in an engag
 - **Vanilla JavaScript** - No external libraries
 - **Responsive Design** - Mobile-first approach
 - **CSS Animations** - Keyframe animations and transitions
+- **Visual Studio Code** - Primary code editor
+- **Git & GitHub** - Version control
+- **Google Fonts** - Typography (Pacifico, Poppins)
+- **Figma** - UI/UX design and prototyping
 
 ### Deployment
 - **Vercel** - Fast and reliable hosting platform
