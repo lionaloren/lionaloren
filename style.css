@@ -1425,7 +1425,20 @@ body.dark-mode .mouth {
     }
 }
 
-/* ==================== STAR HOVER ==================== */
+/* ==================== STAR HOVER & BOTTOM BLOCK ==================== */
+@media (max-width: 1024px), (hover: none), (pointer: coarse) {
+    .star-decoration:hover {
+        animation: float 3s ease-in-out infinite;
+    }
+    
+    .star-decoration:hover .mouth {
+        width: 3px !important;
+        height: 3px !important;
+        border-radius: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+}
+
 @media (max-width: 480px) {
     body.dark-mode .star-decoration {
         left: calc(50% + 98px + 20px) !important;
@@ -1438,6 +1451,10 @@ body.dark-mode .mouth {
         height: 3px !important;
         border-radius: 1px 1px 3px 3px !important;
         transform: translateX(-50%) translateY(1px) !important;
+    }
+
+    .bottom-block {
+        height: 120px;
     }
 }
 
@@ -1466,7 +1483,7 @@ body.dark-mode .mouth {
     }
 }
 
-@media (min-width: 481px) {
+@media (min-width: 481px) and (hover: hover) and (pointer: fine) {
     .star-decoration:hover {
         animation: float 3s ease-in-out infinite, bounce 0.5s ease;
     }
@@ -1476,5 +1493,53 @@ body.dark-mode .mouth {
         height: 3px;
         border-radius: 1px 1px 3px 3px;
         transform: translateX(-50%) translateY(1px);
+    }
+}
+
+/* iPad Portrait */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .star-decoration {
+        left: calc(50% + 95px + 20px);
+        top: calc(50% + 65px);
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    
+    .star-decoration img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .star-decoration.smiling .mouth {
+        width: 6px !important;
+        height: 3px !important;
+        border-radius: 1px 1px 3px 3px !important;
+        transform: translateX(-50%) translateY(1px) !important;
+    }
+
+    .bottom-block {
+        height: 120px;
+    }
+}
+
+/* iPad Landscape - FIXED */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .star-decoration {
+        left: calc(50% + 95px + 20px);
+        top: calc(50% + 65px);
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    
+    .star-decoration img {
+        width: 60px;
+        height: 60px;
+    }
+    
+    /* Pastikan smile bekerja di iPad landscape */
+    .star-decoration.smiling .mouth {
+        width: 6px !important;
+        height: 3px !important;
+        border-radius: 1px 1px 3px 3px !important;
+        transform: translateX(-50%) translateY(1px) !important;
+        background: #735465 !important;
     }
 }
